@@ -1,0 +1,62 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.screen {
+  width: 350px;
+  height: 500px;
+  border: 5px solid black;
+}
+
+.top-screen {
+  height: 60%;
+  overflow: auto;
+}
+
+.bottom-screen {
+  border-top: 10px solid black;
+  height: 35%;
+  overflow: auto;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+}
+
+.row-right {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.row-right .message {
+  grid-column-start: 2;
+  background-color: blue;
+}
+
+.row-left .message {
+  background-color: gray;
+}
+
+.row-bottom {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.message {
+  color: white;
+  width: 120px;
+  padding: 5px;
+  border-radius: 10px 10px 0px 10px;
+  margin: 10px;
+}
+
+.row-bottom .message {
+  background-color: blue;
+  grid-column-start: 2;
+}
