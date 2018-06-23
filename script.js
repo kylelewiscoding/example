@@ -5,32 +5,26 @@ let didDoThething = false;
 let didSet = false;
 
 const screenBottom = document.querySelector(".bottom-screen");
+const screenTop = document.querySelector(".top-screen");
 
-const scrollStopped = () => {
+$(screenTop).on("scrollstart", () => {
+  $(screenTop).removeClass("scoll-bottom");
+  $(screenTop).addClass("scroll-top");
+});
+
+$(screenTop).on("scrollstop", () => {
   setTimeout(() => {
-    if (!isScrollingBottom && !didStop && !didSet) {
-      console.log("***");
-      didStop = true;
-      didSet = true;
-    }
-  }, 1000);
-};
+    $(screenTop).removeClass("scroll-top");
+  }, 2000);
+});
 
-// setInterval(function() {
-// }, 2000);
+$(screenBottom).on("scrollstart", function() {
+  $(screenTop).removeClass("scoll-top");
+  $(screenTop).addClass("scroll-bottom");
+});
 
-const expandBottom = () => {
-  didSet = false;
-  isScrollingBottom = true;
-  didStop = false;
-  setTimeout(function() {
-    isScrollingBottom = false;
-    if (isScrollingBottom && !didStop) {
-      isScrolling = false;
-      didStop = true;
-    }
-    scrollStopped();
-  }, 333);
-};
-
-screenBottom.addEventListener("scroll", expandBottom, false);
+$(screenBottom).on("scrollstop", function() {
+  setTimeout(() => {
+    $(screenTop).removeClass("scroll-bottom");
+  }, 2000);
+});

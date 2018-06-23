@@ -11,16 +11,19 @@ body {
   width: 350px;
   height: 500px;
   border: 5px solid black;
+  display: flex;
+  flex-direction: column;
 }
 
 .top-screen {
-  height: 60%;
+  height: 70%;
   overflow: auto;
+  transition: height 1s;
 }
 
 .bottom-screen {
   border-top: 10px solid black;
-  height: 35%;
+  flex: 1;
   overflow: auto;
 }
 
@@ -59,4 +62,11 @@ body {
 .row-bottom .message {
   background-color: blue;
   grid-column-start: 2;
+}
+
+.scroll-top {
+  height: 90%;
+}
+.scroll-bottom {
+  height: 30%;
 }
